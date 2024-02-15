@@ -30,7 +30,7 @@ def getPath(text) :
             # 2. // 로 시작하지 않는 문자열 중에서 /가 2개인것 찾기
             # if not match2.count("//") >= 1 and match2.count('/') < 2:
             #     continue
-            if any(char in match2 for char in [",", "\n", ";", "(", "/>", "{", "}", "%"]):
+            if any(char in match2 for char in [",", "\n", ";", "(", "</", "{", "}", "%"]):
                 continue
             else : 
                 path_list.append(match2)
@@ -113,8 +113,12 @@ for repo_name in repo_name_list :
             # 확장자 확인 후 파일 내용 읽기
             if extension in ["php", "html", "py", "ts", "tsx", "js", "jsx", "asp"] :
                 file_path = os.path.join(path, file_name)
-                with open(file_path, 'r') as file:
-                    contents = file.read()
+
+                try : 
+                    with open(file_path, 'r') as file:
+                        contents = file.read()
+                except :
+                    break
                 
                 # 경로 추출
                 repo_path_list += getPath(contents)

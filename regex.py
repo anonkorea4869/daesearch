@@ -134,7 +134,7 @@ for repo_idx, repo_name in enumerate(repo_name_list) :
 
     # 레포의 중복 경로 제거 및 합차기
     total_repo_path_list += list(set(repo_prepare_list))
-    print(f"{repo_idx + 1}. repo_name -> {len(total_repo_path_list)}")
+    print(f"{repo_idx + 1}. {repo_name} -> {len(total_repo_path_list)}")
 
     with open("regex.txt", "a") as f:
         for total_repo_path in total_repo_path_list : 

@@ -91,7 +91,7 @@ def prepare(path) :
     return path
 
 # 레포 이름 구하기
-for path, dirs, files in os.walk("./github"):
+for path, dirs, files in os.walk("./repos"):
     repo_name_list = dirs
     break
 
@@ -101,7 +101,7 @@ for repo_name in repo_name_list :
     repo_path_list = []
 
     # 레포별 내용 순회
-    for path, dirs, files in os.walk(f"./github/{repo_name}"):
+    for path, dirs, files in os.walk(f"./repos/{repo_name}"):
         for file_name in files:
             
             # 확장자 얻기

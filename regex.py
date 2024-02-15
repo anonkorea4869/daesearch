@@ -95,6 +95,8 @@ for path, dirs, files in os.walk("./repos"):
     repo_name_list = dirs
     break
 
+repo_name_list.sort()
+
 total_repo_path_list = []
 # 레포 순회
 for repo_idx, repo_name in enumerate(repo_name_list) :

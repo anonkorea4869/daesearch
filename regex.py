@@ -97,7 +97,7 @@ for path, dirs, files in os.walk("./repos"):
 
 total_repo_path_list = []
 # 레포 순회
-for repo_name in repo_name_list :
+for repo_idx, repo_name in enumerate(repo_name_list) :
     repo_path_list = []
 
     # 레포별 내용 순회
@@ -134,14 +134,11 @@ for repo_name in repo_name_list :
 
     # 레포의 중복 경로 제거 및 합차기
     total_repo_path_list += list(set(repo_prepare_list))
-    print(repo_name, "->", len(total_repo_path_list))
+    print(f"{repo_idx + 1}. repo_name -> {len(total_repo_path_list)}")
 
-    with open("regex.txt", "w+") as f:
+    with open("regex.txt", "a") as f:
         for total_repo_path in total_repo_path_list : 
             f.write(f"{total_repo_path}\n")
 
-# 레포별 경로 출력 // 누락된 정보가 있음
-# for path in total_repo_path_list : 
-#     print(path)
-
-print("합계 :", len(total_repo_path_list))
+with open("regex.txt", "r") as f:
+    print(len(f.readlines()))
